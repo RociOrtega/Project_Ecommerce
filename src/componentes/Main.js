@@ -3,7 +3,7 @@ import ItemListContainer from "./ItemListContainer";
 const Main = () => {
     return(
         <main>
-            <ItemListContainer/>
+            <ItemListContainer  greeting="Hola User!"/>
         </main>
     )
 }

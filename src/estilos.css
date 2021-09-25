@@ -9,39 +9,78 @@ body{
     font-family: 'Inter', sans-serif;
     overflow: hidden;
 }
-.navBar{
-    width: 100%;
-    background-color: #353535;
-    padding: 5px;
-    margin-bottom: 10px;
+@media screen and (min-width: 300px){
+    .navBar{
+        width: 100%;
+        background-color: #353535;
+        padding: 12px 5px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .brand{
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        width: 100vw;
+        font-size: 1.1em;
+        margin-bottom: 10px;
+    }
+    .menuItem{
+        color: #ffffff;
+        font-size: .9em;
+        text-decoration: none;
+        cursor: pointer;
+        padding: 2px;
+    }
+    .logoHeader{
+        width: 290px;
+        height: 290px;
+        margin: auto;
+        background-image: linear-gradient(135deg, #f5f7fa34 0%, #c3cfe257 100%), url(./assets/img-cerveza-600x426.jpg);
+        background-position: top;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        border-radius: 50%;
+        box-shadow: 4px 3px 8px #353535;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .tituloHeader{
+        font-size: 1.5em;
+        color: #ffffff;
+        font-weight: 500;
+        text-shadow: 5px 4px 8px #353535;
+        text-transform: uppercase;
+    }
+    main{
+        margin: 50px 0;
+        text-align: center;
+    }
 }
-.menuItem{
-    color: #ffffff;
-    font-size: 1em;
-    padding: 8px;
-}
-.logoHeader{
-    width: 426px;
-    height: 426px;
-    margin: auto;
-    background-image: linear-gradient(135deg, #f5f7fa34 0%, #c3cfe257 100%), url(./assets/img-cerveza.jpg);
-    background-position: top;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    border-radius: 50%;
-    box-shadow: 4px 3px 8px #353535;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.tituloHeader{
-    font-size: 2em;
-    color: #ffffff;
-    font-weight: 500;
-    text-shadow: 5px 4px 8px #353535;
-    text-transform: uppercase;
-}
-main{
-    margin: 50px 0;
-    text-align: center;
+@media screen and (min-width: 765px){
+    .navBar{
+        margin-bottom: 15px;
+    }
+    .brand{
+        width: auto;
+        margin-bottom: 0;
+    }
+    .menuItem{
+        font-size: 1.1em;
+    }
+    .logoHeader{
+        width: 400px;
+        height: 400px;
+    }
+    .tituloHeader{
+        font-size: 2em;
+    }
 }

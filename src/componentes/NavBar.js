@@ -4,12 +4,12 @@ import CartWidget from "./CartWidget";
 const NavBar = () => {
     return (
         <nav className="navBar">
-            <a href="#">
+            <div className="brand">
                 <box-icon name='beer' type='solid' flip='horizontal' color='#d0a70a' ></box-icon>
-                De ReVuelta
-            </a>
+                <p>De ReVuelta</p>
+            </div>
             <a href="#" className="menuItem">Quiénes somos</a>
-            <a href="#" className="menuItem">Productos</a>
+            <a href="#productos" className="menuItem">Productos</a>
             <a href="#" className="menuItem">Contacto</a>
             <CartWidget/>
         </nav>

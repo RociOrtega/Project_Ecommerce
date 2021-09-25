@@ -3,11 +3,11 @@ import Main from "./componentes/Main";
 
 const App = () => {
     return(
-        [
+        <>
             <Header/>, 
             <Main/>
-        ]
-    );
-};
+        </>
+    )
+}
 
 export default App;
