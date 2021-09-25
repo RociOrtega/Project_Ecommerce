@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+}
+.navBar{
+    width: 100%;
+    background-color: #353535;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.menuItem{
+    color: #ffffff;
+    font-size: 1em;
+    padding: 8px;
+}
+.logoHeader{
+    width: 426px;
+    height: 426px;
+    margin: auto;
+    background-image: linear-gradient(135deg, #f5f7fa34 0%, #c3cfe257 100%), url(./assets/img-cerveza.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border-radius: 50%;
+    box-shadow: 4px 3px 8px #353535;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tituloHeader{
+    font-size: 2em;
+    color: #ffffff;
+    font-weight: 500;
+    text-shadow: 5px 4px 8px #353535;
+    text-transform: uppercase;
+}
+main{
+    margin: 50px 0;
+    text-align: center;
+}
