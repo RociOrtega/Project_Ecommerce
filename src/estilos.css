@@ -7,7 +7,6 @@
 
 body{
     font-family: 'Inter', sans-serif;
-    overflow: hidden;
 }
 @media screen and (min-width: 300px){
     .navBar{
@@ -61,8 +60,21 @@ body{
         text-transform: uppercase;
     }
     main{
-        margin: 50px 0;
+        margin: 50px 5px;
         text-align: center;
+    }
+    .btnMasMenos{
+        height: 28px;
+        width: 28px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        border: 2px solid #000000;
+        cursor: pointer;
+    }
+    .tarjeta{
+        width: 100%;
+        height: auto;
+        margin: 10px;
     }
 }
 @media screen and (min-width: 765px){
@@ -82,5 +94,11 @@ body{
     }
     .tituloHeader{
         font-size: 2em;
+    }
+    .tarjeta{
+        width: 25%;
+    }
+    .itemList{
+        display: flex;
     }
 }

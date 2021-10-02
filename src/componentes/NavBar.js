@@ -8,9 +8,9 @@ const NavBar = () => {
                 <box-icon name='beer' type='solid' flip='horizontal' color='#d0a70a' ></box-icon>
                 <p>De ReVuelta</p>
             </div>
-            <a href="#" className="menuItem">Quiénes somos</a>
+            <a href="#productos" className="menuItem">Quiénes somos</a>
             <a href="#productos" className="menuItem">Productos</a>
-            <a href="#" className="menuItem">Contacto</a>
+            <a href="#productos" className="menuItem">Contacto</a>
             <CartWidget/>
         </nav>
     );
