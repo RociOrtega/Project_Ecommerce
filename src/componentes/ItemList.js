@@ -1,7 +1,25 @@
 import Item from "./Item";
 
-const ItemList = () => {
-    const productos = 
+const ItemList = (props) => {
+  const productoCatalago = props.catalogo;
+  console.log(productoCatalago);
+  return(
+    <div className="itemList">
+      {(productoCatalago !== null) && productoCatalago.map((producto,index) =>
+        <Item
+          key = {index}
+          title = {producto.title}
+          price = {producto.price}
+          imgUrl = {producto.thumbnail}                        
+          description = {producto.description}
+        />
+      )} 
+    </div>
+  )
+}
+
+/*const ItemList = () => {
+  const productos = 
     [
       {
         title: 'Cerveza 1',
@@ -44,7 +62,6 @@ const ItemList = () => {
         description: 'descripción breve del producto, cc, tipo de cerveza etc'
       }
   ];
-
     return(
         <div className="itemList">
             {(productos !== null) && productos.map((producto,index) =>
@@ -55,9 +72,9 @@ const ItemList = () => {
                     imgUrl = {producto.thumbnail}                        
                     description = {producto.description}
                 />
-            )}   
+            )} 
         </div>
     )
-}
+}*/
 
 export default ItemList;
