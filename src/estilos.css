@@ -20,10 +20,6 @@ body{
         justify-content: space-around;
     }
     .brand{
-        color: #ffffff;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-weight: bold;
         display: flex;
         align-items: center;
         cursor: pointer;
@@ -37,6 +33,10 @@ body{
         text-decoration: none;
         cursor: pointer;
         padding: 2px;
+    }
+    .menuItem:hover, .brand:hover{
+        transform: scale(.96);
+        transition: .3s;
     }
     .logoHeader{
         width: 290px;
@@ -97,6 +97,11 @@ body{
         background-color: #975600c0;
         color: #000000;
         font-weight: bold;
+        cursor: pointer;
+    }
+    .tarjetaBoton:hover{
+        transform: scale(1.1);
+        transition: .5s;
     }
 }
 @media screen and (min-width: 500px){

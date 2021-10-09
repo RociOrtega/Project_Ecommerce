@@ -1,13 +1,19 @@
-//import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Header from "./componentes/Header";
-import Main from "./componentes/Main";
+import ItemListContainer from "./componentes/ItemListContainer";
+//import ItemDetailContainer from "./componentes/ItemDetailContainer";
+import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 const App = () => {
     return(
-        <>
+        <BrowserRouter>
             <Header/>
-            <Main/>
-        </>
+            <main>
+                <Switch>
+                    <Route path="/" component={ItemListContainer}/>
+                    <Route path="/categoria/:id" component={ItemListContainer}/>
+                </Switch>         
+            </main>
+        </BrowserRouter>
     )
 }
 

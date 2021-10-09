@@ -2,7 +2,7 @@ import "boxicons";
 
 const CartWidget = () => {
     return(
-        <a href="#productos" className="menuItem cartIcon">
+        <a href="/" className="menuItem cartIcon">
             <box-icon name='cart' flip='horizontal' color='#ffffff' ></box-icon>
         </a>
     )

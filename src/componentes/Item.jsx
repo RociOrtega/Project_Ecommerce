@@ -1,3 +1,6 @@
+import { Route} from "react-router-dom";
+import ItemDetailContainer from "./ItemDetailContainer";
+
 const Item = ({title, price, imgUrl, description}) => {
     return(
         <div className="tarjeta">
@@ -5,7 +8,10 @@ const Item = ({title, price, imgUrl, description}) => {
             <h3 className="tarjetaTitulo">{title}</h3>
             <p className="tarjetaDescripcion">{description}</p>
             <p className="tarjetaPrecio">${price}</p>
-            <button className="tarjetaBoton">Ver más</button>
+            <button className="tarjetaBoton">
+                <Route path="/item/:id" component={ItemDetailContainer}/>
+                Ver más
+            </button>
         </div>
     )
 }
