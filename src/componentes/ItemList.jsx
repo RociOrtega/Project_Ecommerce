@@ -2,7 +2,6 @@ import Item from "./Item";
 
 const ItemList = (props) => {
   const productoCatalago = props.catalogo;
-  console.log(productoCatalago);
   return(
     <div className="itemList">
       {(productoCatalago !== null) && productoCatalago.map((producto,index) =>

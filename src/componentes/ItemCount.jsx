@@ -13,7 +13,7 @@ const ItemCount = ({stock, initial}) => {
     };
     return(
         <div>
-            <span>Quedan {stock} productos</span> 
+            <span className="tarjetaStock">Quedan {stock} productos</span> 
             <br/>
             <button className="btnMasMenos" onClick={restar}><box-icon name='minus'></box-icon></button>
             <span>{cantidad}</span>

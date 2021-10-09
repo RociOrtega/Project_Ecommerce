@@ -70,14 +70,46 @@ body{
         background-color: #ffffff;
         border: 2px solid #000000;
         cursor: pointer;
+        margin: 10px;
     }
     .tarjeta{
         width: 100%;
         height: auto;
         margin: 10px;
     }
+    .tarjetaTitulo{
+        font-size: 2em;
+    }
+    .tarjetaPrecio{
+        font-size: 1.5em;
+        color: #970000;
+    }
+    .tarjetaStock{
+        color: #975600;
+    }
+    .tarjetaBoton{
+        width: 100%;
+        height: 30px;
+        border-radius: 5px;
+        margin: 10px 0;
+        font-size: 1em;
+        border: 1px solid #975600;
+        background-color: #975600c0;
+        color: #000000;
+        font-weight: bold;
+    }
 }
-@media screen and (min-width: 765px){
+@media screen and (min-width: 500px){
+    .tarjeta{
+        width: 45%;
+    }
+    .itemList{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+}
+@media screen and (min-width: 768px){
     .navBar{
         margin-bottom: 15px;
     }
@@ -96,9 +128,24 @@ body{
         font-size: 2em;
     }
     .tarjeta{
-        width: 25%;
+        width: 45%;
     }
-    .itemList{
+    .tarjetaDetalle{
         display: flex;
+        justify-content: space-around;
+    }
+    .tarjetaDetalleImg{
+        width: 40%;
+        margin: 10px;
+    }
+    .tarjetaDetalleDatos{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+}
+@media screen and (min-width: 1024px){
+    .tarjeta{
+        width: 20%;
     }
 }
