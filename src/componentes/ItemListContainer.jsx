@@ -8,7 +8,7 @@ const productos = [
         price: 1000,
         thumbnail: 'https://www.gastroactitud.com/wp-content/uploads/2019/10/Lexico-cervezas.jpg',
         id: 1,
-        categoria: "1",
+        categoria: 1,
         description: 'descripción breve del producto, cc, tipo de cerveza etc'
     },
     {
@@ -16,7 +16,7 @@ const productos = [
         price: 2500,
         thumbnail:'https://laroussecocina.mx/wp-content/uploads/2019/05/cerveza-helada-1024x646.jpg',
         id: 2,
-        categoria: "1",
+        categoria: 1,
         description: 'descripción breve del producto, cc, tipo de cerveza etc'
     },
     {
@@ -24,7 +24,7 @@ const productos = [
         price: 3800,
         thumbnail: 'http://www.eltiempo.com/files/image_640_428/uploads/2017/08/10/598cfa8c9370e.jpeg',
         id: 3,
-        categoria: "1",
+        categoria: 1,
         description: 'descripción breve del producto, cc, tipo de cerveza etc'
     },
     {
@@ -32,7 +32,7 @@ const productos = [
         price: 920,
         thumbnail: 'https://www.ngenespanol.com/wp-content/uploads/2018/08/7-buenas-razones-para-tomar-cerveza-1280x720.png',
         id: 4,
-        categoria: "1",
+        categoria: 1,
         description: 'descripción breve del producto, cc, tipo de cerveza etc'
     },
     {
@@ -40,7 +40,7 @@ const productos = [
         price: 1050,
         thumbnail: 'https://www.lavanguardia.com/files/og_thumbnail/uploads/2020/07/13/5f0c78598c987.jpeg',
         id: 5,
-        categoria: "1",
+        categoria: 1,
         description: 'descripción breve del producto, cc, tipo de cerveza etc'
     },
     {
@@ -48,7 +48,7 @@ const productos = [
         price: 5700,
         thumbnail: 'https://www.thebeertimes.com/wp-content/uploads/2018/04/Growler_personalizados.jpg',
         id: 6,
-        categoria: "2",
+        categoria: 2,
         description: 'descripción breve del producto, cc, tipo de cerveza etc'
     },
     {
@@ -56,7 +56,7 @@ const productos = [
         price: 13000,
         thumbnail: 'https://ripleycl.imgix.net/https%3A%2F%2Fs3-sa-east-1.amazonaws.com%2Fcentryproduction%2Fbelanit-inventario%2Fproducts%2F614e0b737dea940df53b8a39%2Fimage%2F614e0b737dea940df53b8a39%2Foriginal%2F802173_png.png?w=750&h=555&ch=Width&auto=format&cs=strip&bg=FFFFFF&q=60&trimcolor=FFFFFF&trim=color&fit=fillmax&ixlib=js-1.1.0&s=3658f5809256755c0f70eea0bd234bf9',
         id: 7,
-        categoria: "2",
+        categoria: 2,
         description: 'descripción breve del producto, cc, tipo de cerveza etc'
     },
     {
@@ -64,7 +64,7 @@ const productos = [
         price: 13000,
         thumbnail: 'https://s-print.cl/wp-content/uploads/2018/09/IMG_9521.jpg',
         id: 8,
-        categoria: "2",
+        categoria: 2,
         description: 'descripción breve del producto, cc, tipo de cerveza etc'
     },
     {
@@ -72,7 +72,7 @@ const productos = [
         price: 3500,
         thumbnail: 'https://www.webadicto.net/wp-content/uploads/kebo-destapa-bebidas-con-una-mano-01_1.jpg',
         id: 9,
-        categoria: "2",
+        categoria: 2,
         description: 'descripción breve del producto, cc, tipo de cerveza etc'
     },
     {
@@ -80,7 +80,7 @@ const productos = [
         price: 3500,
         thumbnail: 'https://cdn-3.expansion.mx/dims4/default/cab6470/2147483647/strip/true/crop/1200x627+0+0/resize/1200x627!/format/webp/quality/90/?url=https%3A%2F%2Fcherry-brightspot.s3.amazonaws.com%2Fac%2Fdf%2F6186348b4769bf8bc9e45cf6aa3e%2Fcerveza.jpg',
         id: 10,
-        categoria: "2",
+        categoria: 2,
         description: 'descripción breve del producto, cc, tipo de cerveza etc'
     },
     {
@@ -88,7 +88,7 @@ const productos = [
         price: 2500,
         thumbnail: 'https://ae01.alicdn.com/kf/H9db39ce59ad74a4490251dd940d4b8d9a/LLavero-de-vasos-de-cerveza-de-resina-para-hombre-y-mujer-llavero-de-coche-colgante-de.jpg_.webp',
         id: 11,
-        categoria: "2",
+        categoria: 2,
         description: 'descripción breve del producto, cc, tipo de cerveza etc'
     },
     {
@@ -96,13 +96,13 @@ const productos = [
         price: 2500,
         thumbnail: 'https://i.linio.com/p/83ad6161945b058edac7c3d980af8c1e-product.webp',
         id: 12,
-        categoria: "2",
+        categoria: 2,
         description: 'descripción breve del producto, cc, tipo de cerveza etc'
     }
 ];
 
 function ItemListContainer(){
-    const {id} = useParams()
+    const {id} = useParams();
     const [estado, setEstado] = useState('Cargando...');
     const [items, setItems] = useState([]);
 

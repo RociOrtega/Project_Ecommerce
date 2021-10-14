@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import ItemDetail from "./ItemDetail";
+import { useParams } from 'react-router';
 
 const listaProductos = [
     {
@@ -44,44 +45,33 @@ const listaProductos = [
     }
 ];
 
-function miPromesa(){
-    return new Promise((resolve, reject) => {
-        setTimeout(function(){
-            resolve(listaProductos);
-        }, 2000);
-    });
-}
-
 function ItemDetailContainer(){
-    const [estadoDetail, setEstadoDetail] = useState('Cargando...');
-    const [producto, setProducto] = React.useState(null);
+    const [producto, setProducto] = useState({})
+    const {id} = useParams()
 
-    useEffect(() => {    
-        let cargaDatosProductos = miPromesa();
+    useEffect(() => {
 
-        cargaDatosProductos
-        .then(function(itemsProductos){
-            setProducto(itemsProductos);     
-            setEstadoDetail('Listo!');  
-            console.log(itemsProductos);
-        })      
-        .catch(function(){setEstadoDetail('Error')})
-        .finally(() => {console.log("Promesa terminada")})
-    }, []);
+        const promesa = new Promise((resolve,reject) => {
+            setTimeout(() => {
+                const producto = listaProductos.find(producto => producto.id === id)
+                resolve(producto)
+            },2000)
+        })
+
+        promesa.then(producto => setProducto(producto))
+
+    },[id])
 
     return (
         <section className="contenedorDetalles">
-            <h3>{estadoDetail}</h3>
-            {(producto !== null) && producto.map((producto,index) =>
-                <ItemDetail
-                    key = {index}
-                    title = {producto.title}
-                    price = {producto.price}
-                    imgUrl = {producto.thumbnail}                        
-                    description = {producto.description}
-                    stock = {producto.stock}
-                />
-            )} 
+            <ItemDetail 
+                producto={producto}
+                title = {producto.title}
+                price = {producto.price}
+                imgUrl = {producto.thumbnail}
+                description = {producto.description}
+                stock = {producto.stock}
+            />
         </section>  
     )  
 
