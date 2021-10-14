@@ -1,17 +1,17 @@
 import "boxicons";
 import CartWidget from "./CartWidget";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
     return (
         <nav className="navBar">
             <div className="brand">
                 <box-icon name='beer' type='solid' flip='horizontal' color='#d0a70a' ></box-icon>
-                <NavLink className="menuItem" to="/">De Revuelta</NavLink>
+                <Link className="menuItem" to="/">De Revuelta</Link>
             </div>
-            <NavLink className="menuItem" to="/">Productos</NavLink>
-            <NavLink className="menuItem" to="/categoria/1">Cervezas</NavLink>
-            <NavLink className="menuItem" to="/categoria/2">Accesorios</NavLink>
+            <Link className="menuItem" to="/">Productos</Link>
+            <Link className="menuItem" to="/categoria/1">Cervezas</Link>
+            <Link className="menuItem" to="/categoria/2">Accesorios</Link>
             <CartWidget/>
         </nav>
     );

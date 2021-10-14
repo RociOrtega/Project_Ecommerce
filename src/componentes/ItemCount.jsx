@@ -12,13 +12,14 @@ const ItemCount = ({stock, initial}) => {
         setCantidad(cantidad - 1)
     };
     return(
-        <div>
+        <article>
             <span className="tarjetaStock">Quedan {stock} productos</span> 
-            <br/>
-            <button className="btnMasMenos" onClick={restar}><box-icon name='minus'></box-icon></button>
-            <span>{cantidad}</span>
-            <button className="btnMasMenos" onClick={aumentar}><box-icon name='plus'></box-icon></button>
-        </div>
+            <div className="contador">
+                <button className="btnMasMenos" onClick={restar}><box-icon name='minus'></box-icon></button>
+                <span>{cantidad}</span>
+                <button className="btnMasMenos" onClick={aumentar}><box-icon name='plus'></box-icon></button>
+            </div>
+        </article>
     )
 }
 

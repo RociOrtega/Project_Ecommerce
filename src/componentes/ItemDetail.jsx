@@ -1,16 +1,17 @@
 import ItemCount from "./ItemCount";
 
-const ItemDetail = ({title, price, imgUrl, description, stock}) => {
+const ItemDetail = ({detalle}) => {
     return(
-        <div className="tarjetaDetalle">
-            <img className="tarjetaDetalleImg" src={imgUrl} alt="" width="100%" height="350px"/>
+        <article className="tarjetaDetalle">
+            <img className="tarjetaDetalleImg" src={detalle.thumbnail} alt="" width="100%" height="350px"/>
             <div className="tarjetaDetalleDatos">
-                <h3 className="tarjetaTitulo">{title}</h3>
-                <h4 className="tarjetaPrecio">${price}</h4>
-                <p className="tarjetaDescripcion">{description}</p>
-                <ItemCount stock={stock} initial="1"/>
+                <h3 className="tarjetaTitulo">{detalle.title}</h3>
+                <h4 className="tarjetaPrecio">${detalle.price}</h4>
+                <p className="tarjetaDescripcion">{detalle.description}</p>
+                <ItemCount stock={detalle.stock} initial="1"/> 
+                <button className="btn-agregarCarrito">Agregar al carrito</button>
             </div>
-        </div>
+        </article>
     )
 }
 

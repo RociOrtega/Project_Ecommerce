@@ -11,6 +11,7 @@ const ItemList = (props) => {
           price = {producto.price}
           imgUrl = {producto.thumbnail}                        
           description = {producto.description}
+          id = {producto.id}
         />
       )} 
     </div>

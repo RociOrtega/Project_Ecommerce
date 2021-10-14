@@ -27,7 +27,7 @@ body{
         font-size: 1.1em;
         margin-bottom: 10px;
     }
-    .menuItem{
+    .menuItem, .textoFooter{
         color: #ffffff;
         font-size: .9em;
         text-decoration: none;
@@ -45,7 +45,6 @@ body{
         background-image: linear-gradient(135deg, #f5f7fa34 0%, #c3cfe257 100%), url(./assets/img-cerveza-600x426.jpg);
         background-position: top;
         background-repeat: no-repeat;
-        background-attachment: fixed;
         border-radius: 50%;
         box-shadow: 4px 3px 8px #353535;
         display: flex;
@@ -87,21 +86,46 @@ body{
     .tarjetaStock{
         color: #975600;
     }
-    .tarjetaBoton{
+    .contador{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .tarjetaBoton, .btn-agregarCarrito{
         width: 100%;
         height: 30px;
         border-radius: 5px;
         margin: 10px 0;
-        font-size: 1em;
         border: 1px solid #975600;
         background-color: #975600c0;
-        color: #000000;
-        font-weight: bold;
         cursor: pointer;
     }
-    .tarjetaBoton:hover{
+    .tarjetaBoton:hover, .btn-agregarCarrito:hover{
         transform: scale(1.1);
         transition: .5s;
+    }
+    .tarjetaBotonTexto{
+        font-size: 1.5em;
+        color: #000000;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 5px 37%;
+    }
+    .btn-agregarCarrito{
+        font-size: 1em;
+        color: #ffffff;
+    }
+    footer{
+        width: 100%;
+        height: 100px;
+        background-color: #353535;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .brandFooter{
+        width: auto;
     }
 }
 @media screen and (min-width: 500px){
@@ -112,6 +136,9 @@ body{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
+    }
+    .tarjetaBotonTexto{
+        padding: 5px 32%;
     }
 }
 @media screen and (min-width: 768px){
@@ -148,9 +175,15 @@ body{
         flex-direction: column;
         justify-content: space-evenly;
     }
+    .tarjetaBotonTexto{
+        padding: 5px 38%;
+    }
 }
 @media screen and (min-width: 1024px){
     .tarjeta{
         width: 20%;
+    }
+    .tarjetaBotonTexto{
+        padding: 5px 30%;
     }
 }
