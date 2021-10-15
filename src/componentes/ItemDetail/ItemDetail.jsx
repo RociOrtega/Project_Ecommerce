@@ -31,8 +31,8 @@ const ItemDetail = ({detalle}) => {
                 <h3 className="tarjetaTitulo">{detalle.title}</h3>
                 <h4 className="tarjetaPrecio">${detalle.price}</h4>
                 <p className="tarjetaDescripcion">{detalle.description}</p>
-                <ItemCount stock={detalle.stock} initial={1} onAdd = {onAdd}/> 
-                <button onClick={agregar} hidden={cantidad >=1 ? false : true}>Terminar mi compra</button>
+                <ItemCount stock={detalle.stock} initial={1} onAdd = {onAdd} agregar = {agregar}/> 
+                <button hidden={cantidad >=1 ? false : true}>Terminar mi compra</button>
             </div>
         </article>
     )
