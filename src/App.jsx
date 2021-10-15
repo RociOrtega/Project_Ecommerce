@@ -1,7 +1,7 @@
-import Header from "./Header/Header";
+import Header from "./componentes/Header/Header";
 import ItemListContainer from "./componentes/ItemList/ItemListContainer";
 import ItemDetailContainer from "./componentes/ItemDetail/ItemDetailContainer";
-import Cart from "./Cart";
+import Cart from "./componentes/Cart";
 import Footer from "./componentes/Footer";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import CartProvider from "./CartContext";
