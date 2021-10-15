@@ -133,9 +133,7 @@ function ItemDetailContainer(){
     return (
         <section className="contenedorDetalles">
             <h3>{estado}</h3>
-            <ItemDetail 
-                detalle = {detalle}
-            />
+            <ItemDetail detalle = {detalle}/>
         </section>  
     )  
 
