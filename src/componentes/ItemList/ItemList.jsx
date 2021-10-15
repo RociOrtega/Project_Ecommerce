@@ -1,4 +1,4 @@
-import Item from "./Item";
+import Item from "../ItemList/Item";
 
 const ItemList = (props) => {
   const productoCatalago = props.catalogo;

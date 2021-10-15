@@ -1,24 +1,30 @@
 import {useState} from 'react';
 import "boxicons";
 
-const ItemCount = ({stock, initial}) => {
-    const [cantidad, setCantidad] = useState(parseInt(initial, 10));
+const ItemCount = ({stock, initial, onAdd}) => {
+    const [contador, setContador] = useState(initial)
     const aumentar = () => {
-        if(cantidad >= stock){return} 
-        setCantidad(cantidad + 1)
-    };
+        if(contador < stock){
+            setContador(contador + 1)
+        } 
+    }
     const restar = () => {
-        if(cantidad <= parseInt(initial, 10)){return}
-        setCantidad(cantidad - 1)
-    };
+        if(contador > initial)
+        setContador(contador - 1)
+    }
+    const confirmarContador = () => {
+        onAdd(contador)
+    }
+
     return(
         <article>
             <span className="tarjetaStock">Quedan {stock} productos</span> 
             <div className="contador">
                 <button className="btnMasMenos" onClick={restar}><box-icon name='minus'></box-icon></button>
-                <span>{cantidad}</span>
+                <span>{contador}</span>
                 <button className="btnMasMenos" onClick={aumentar}><box-icon name='plus'></box-icon></button>
             </div>
+            <button className="btn-agregarCarrito" onClick={confirmarContador}>Comprar</button>
         </article>
     )
 }

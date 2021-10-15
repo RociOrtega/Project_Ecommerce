@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react';
-import ItemList from "./ItemList";
+import ItemList from './ItemList';
 import { useParams } from "react-router";
 
 const productos = [
@@ -54,7 +54,7 @@ const productos = [
         title: 'Growler',
         price: 5700,
         stock: 22,
-        thumbnail: 'https://www.thebeertimes.com/wp-content/uploads/2018/04/Growler_personalizados.jpg',
+        thumbnail: 'https://dojiw2m9tvv09.cloudfront.net/26900/product/growler2l_usa3130.jpg',
         description: 'descripción breve del producto, cc, tipo de cerveza etc'
     },
     {
