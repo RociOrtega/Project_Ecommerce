@@ -1,20 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { CartContext } from '../CartContext';
+//import ItemCarrito from './ItemCarrito';
 
 function Cart() {
-    //Para agregar solo necesitamos carrito
-    //Para eliminar necesitamos setCarrito
     const [carrito] = useContext(CartContext);
 
-    {carrito.map((item, index) => {
-        return(
-            <ul key={index}>
-                <img src={item.thumbnail} alt="" width="100px"/>
-                <li>{item.title}</li>
-                <li>{item.price}</li>
-            </ul>    
-        )
-    })}
+    return(
+        <>
+        <h1>Hola! Este es el carrito de compras</h1>
+        <section className="itemList">
+            {carrito.map((item, index) => {
+                return(
+                <ul key={index} className="tarjetaCarrito">
+                    <li className="tarjetaCarritoTitulo">{item.title}</li>
+                    <img className="tarjetaCarritoImg" src={item.img} alt="" width="200px" height="auto"/>
+                    <li className="tarjetaCarritoPrecio">${item.price}</li>
+                    <button>Eliminar</button>
+                </ul>
+            )
+        })}
+        </section>
+        <button >Vaciar carrito</button>
+        </>
+    )
 }
 
 export default Cart;
