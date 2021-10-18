@@ -5,10 +5,21 @@ export const CartContext = createContext();
 const CartProvider=({children})=>{
 
     const [carrito, setCarrito] = useState([]);
-    const [existeProducto, setExisteProducto] = useState(false);
+    //const [existeProducto, setExisteProducto] = useState(false);
     const [total, setTotal] = useState(0);
 
+    function isInCart(id){
+        const memoriaCarrito = carrito
+        const existeEnElCarro = memoriaCarrito.find((item) => item.id === id)
+        if(existeEnElCarro == undefined){
+            return 0
+        }else{
+            return 1
+        }
+    }
+
     function addItem(productos, cantidad){
+        const memoriaCarrito = carrito;
         const producto = {
             id: productos.id, 
             title: productos.title, 
@@ -16,9 +27,13 @@ const CartProvider=({children})=>{
             price: productos.price,
             cantidadProd: cantidad
         };
-        const memoriaCarrito = carrito;
-        memoriaCarrito.push(producto);
-        setCarrito(memoriaCarrito);
+        const estaEnCarro = isInCart(producto.id);
+        if(estaEnCarro === 0){
+            memoriaCarrito.push(producto);
+            setCarrito(memoriaCarrito)
+        }else if(estaEnCarro === 1){
+            console.log(`sumar cantidad ${cantidad}`)
+        }
     }
 
     function removeItem(itemId){
@@ -41,8 +56,6 @@ const CartProvider=({children})=>{
         setTotal(valorTotal);
     }
 
-    //function isInCart(){}
-
     const valorContexto = {
         carrito,
         addItem,
@@ -50,7 +63,6 @@ const CartProvider=({children})=>{
         clear,
         totalCompra,
         total
-        //isInCart
     }
 
     return (
