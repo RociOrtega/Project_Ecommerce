@@ -1,11 +1,10 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 
 export const CartContext = createContext();
 
 const CartProvider=({children})=>{
 
     const [carrito, setCarrito] = useState([]);
-    //const [existeProducto, setExisteProducto] = useState(false);
     const [total, setTotal] = useState(0);
 
     function isInCart(id){
@@ -19,7 +18,7 @@ const CartProvider=({children})=>{
     }
 
     function addItem(productos, cantidad){
-        const memoriaCarrito = carrito;
+        const memoriaCarrito = carrito
         const producto = {
             id: productos.id, 
             title: productos.title, 
@@ -27,12 +26,12 @@ const CartProvider=({children})=>{
             price: productos.price,
             cantidadProd: cantidad
         };
-        const estaEnCarro = isInCart(producto.id);
+        const estaEnCarro = isInCart(producto.id)
         if(estaEnCarro === 0){
             memoriaCarrito.push(producto);
             setCarrito(memoriaCarrito)
         }else if(estaEnCarro === 1){
-            console.log(`sumar cantidad ${cantidad}`)
+            //
         }
     }
 

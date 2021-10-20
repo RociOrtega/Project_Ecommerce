@@ -1,17 +1,19 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { CartContext } from '../CartContext';
 
 function Cart() {
     const {carrito, removeItem, clear, totalCompra, total} = useContext(CartContext);
 
-    function montoTotal(){
+    useEffect(() => {
         totalCompra()
-    }
+    })
     
 
     return(
         <section>
             <h1>Hola! Este es el carrito de compras</h1>
+            <button><Link to="/">Seguir comprando</Link></button>
             <div className="itemList">
                 {carrito.map((item, index) => {
                     return (
