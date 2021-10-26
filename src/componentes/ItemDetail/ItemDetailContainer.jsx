@@ -5,14 +5,26 @@ import { firestore } from '../firebase';
 
 function ItemDetailContainer(){
     const [detalle, setDetalle] = useState({})
+    const [estado, setEstado] = useState("Cargando...");
     const {id} = useParams()
 
     useEffect(() => {
-        
-    },[id])
+        const db = firestore;
+        const productoDetalle = db.collection('productos').doc(id);
+        const query = productoDetalle.get();
+
+        query.then((doc)=> {
+            setDetalle({id: doc.id, ...doc.data()});
+            setEstado(" ")
+        })
+        query.catch((error)=> {
+            console.log(error)
+        })
+    },[])
 
     return (
         <section className="contenedorDetalles">
+            <h3>{estado}</h3>
             <ItemDetail detalle = {detalle}/>
         </section>  
     )  

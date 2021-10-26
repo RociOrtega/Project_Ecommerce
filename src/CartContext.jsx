@@ -2,10 +2,10 @@ import React, { createContext, useEffect, useState } from 'react'
 
 export const CartContext = createContext();
 
-const CartProvider=({children})=>{
-
+const CartProvider=({children}) => {
     const [carrito, setCarrito] = useState([]);
     const [total, setTotal] = useState(0);
+    const [totalItems, setTotalItems] = useState(0)
 
     function isInCart(id){
         const memoriaCarrito = carrito
@@ -29,11 +29,14 @@ const CartProvider=({children})=>{
         const estaEnCarro = isInCart(producto.id)
         if(estaEnCarro === 0){
             memoriaCarrito.push(producto);
-            setCarrito(memoriaCarrito)
         }else if(estaEnCarro === 1){
-            //
+            const existeEnElCarro = memoriaCarrito.find((item) => item.id === producto.id)
+            existeEnElCarro.cantidadProd += producto.cantidadProd
         }
+        setCarrito(memoriaCarrito)
+        setTotalItems(totalItems + producto.cantidadProd)
     }
+
 
     function removeItem(itemId){
         const memoriaCarrito = carrito;
@@ -45,6 +48,7 @@ const CartProvider=({children})=>{
     function clear(){
         setCarrito([]);
         setTotal(0);
+        setTotalItems(0);
     }
 
     function totalCompra(){
@@ -61,7 +65,8 @@ const CartProvider=({children})=>{
         removeItem,
         clear,
         totalCompra,
-        total
+        total,
+        totalItems
     }
 
     return (

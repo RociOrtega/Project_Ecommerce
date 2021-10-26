@@ -38,6 +38,9 @@ body{
         transform: scale(.96);
         transition: .3s;
     }
+    .numeroItems{
+        color: #ffffff;
+    }
     .logoHeader{
         width: 290px;
         height: 290px;
