@@ -3,7 +3,7 @@ import ItemList from './ItemList';
 import { useParams } from "react-router";
 import { firestore } from '../firebase';
 
-function ItemListContainer(){
+const ItemListContainer = () => {
     const [productos, setProductos] = useState([]);
     const [estado, setEstado] = useState("Cargando...");
     const { id } = useParams();
@@ -48,9 +48,9 @@ function ItemListContainer(){
 
     return(
         <section id="productos">
-            <h2>Hola, este es el catálogo!</h2>
-            <h3>{estado}</h3>
-            <ItemList catalogo={productos}/>
+            <h1 className="mainTitulo">Hola, este es el catálogo!</h1>
+            <h3 className="estadoCarga">{estado}</h3>
+            <ItemList catalogo={productos}/> 
         </section>        
     )  
 }

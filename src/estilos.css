@@ -13,11 +13,11 @@ body{
         width: 100%;
         background-color: #353535;
         padding: 12px 5px;
-        margin-bottom: 10px;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-around;
+        position: fixed;
     }
     .brand{
         display: flex;
@@ -44,7 +44,7 @@ body{
     .logoHeader{
         width: 290px;
         height: 290px;
-        margin: auto;
+        margin: 12vh auto 0 auto;
         background-image: linear-gradient(135deg, #f5f7fa34 0%, #c3cfe257 100%), url(./assets/img-cerveza-600x426.jpg);
         background-position: top;
         background-repeat: no-repeat;
@@ -57,13 +57,41 @@ body{
     .tituloHeader{
         font-size: 1.5em;
         color: #ffffff;
-        font-weight: 500;
         text-shadow: 5px 4px 8px #353535;
         text-transform: uppercase;
     }
     main{
-        margin: 50px 5px;
+        margin: 2vh 5px;
         text-align: center;
+    }
+    .mainTitulo{
+        color: #000000;
+        text-shadow: 2px 2px 2px #35353583;
+    }
+    .estadoCarga{
+        margin: 3vh 0;
+    }
+    .tarjeta, .tarjetaDetalle{
+        height: auto;
+        margin: 10px;
+    }
+    .enlaceTarjeta{
+        text-decoration: none;
+    }
+    .tarjetaTitulo{
+        font-size: 2em;
+        color: #353535;
+        text-decoration-line: none;
+    }
+    .tarjetaDescripcion{
+        color: #6b6b6b;
+    }
+    .tarjetaPrecio{
+        font-size: 1.5em;
+        color: #970000;
+    }
+    .itemCount{
+        display: flex;
     }
     .btnMasMenos{
         height: 28px;
@@ -74,48 +102,99 @@ body{
         cursor: pointer;
         margin: 10px;
     }
-    .tarjeta{
-        width: 100%;
-        height: auto;
-        margin: 10px;
-    }
-    .tarjetaTitulo{
-        font-size: 2em;
-    }
-    .tarjetaPrecio{
-        font-size: 1.5em;
-        color: #970000;
-    }
-    .tarjetaStock{
-        color: #975600;
+    .btnMasMenos:hover{
+        background-color: #fcfcfc;
+        transform: scale(.98);
+        transition: .2s;
     }
     .contador{
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    .tarjetaBoton, .btn-agregarCarrito{
+    .btn-agregarCarrito{
         width: 100%;
-        height: 30px;
+        height: 35px;
         border-radius: 5px;
         margin: 10px 0;
         border: 1px solid #975600;
         background-color: #975600c0;
         cursor: pointer;
+        font-size: 1.1em;
+        color: #ffffff;
     }
-    .tarjetaBoton:hover, .btn-agregarCarrito:hover{
-        transform: scale(1.1);
+    .btn-agregarCarrito:hover, .btn-comprar:hover, .btn-finalizar:hover, .btn-removeItem:hover{
+        transform: scale(.98);
         transition: .5s;
     }
-    .tarjetaBotonTexto{
-        font-size: 1.6em;
+    .tarjetaStock{
+        color: #975600;
+    }
+    .tarjetaCarritoEncabezado{
+        display: none;
+    }
+    .tarjetaCarrito{
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        border: 1px solid #975600;
+        margin: 10px 0;
+    }
+    .tarjetaCarritoImg{
+        margin: 0 auto;
+    }
+    .btn-removeItem{
+        background-color: #6b6b6b28;
+        border: none;
+        border-bottom: 2px solid #975600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn-comprar{
+        width: 90%;
+        height: 40px;
+        border-radius: 5px;
+        margin: 10px 0;
+        border: 1px solid #742100;
+        background-color: #972b00;
+        cursor: pointer;
+    }
+    .btn-comprarTexto{
+        font-size: 1.5em;
         color: #ffffff;
         text-decoration: none;
-        padding: 5px 37%;
+        letter-spacing: 2px;
     }
-    .btn-agregarCarrito{
-        font-size: 1em;
+    .btn-finalizar{
+        width: 80%;
+        height: 35px;
+        border-radius: 5px;
+        margin: 10px 0;
+        border: 1px solid #742100;
+        background-color: #972b00;
+        cursor: pointer;
+    }
+    .btn-finalizarTexto{
+        font-size: 1.2em;
         color: #ffffff;
+        text-decoration: none;
+        letter-spacing: 1px;
+    }
+    .alerta{
+        width: 30%;
+        height: 10vh;
+        outline: thick double #975600;
+        color: #353535;
+        text-shadow: 1px 1px #353535;
+        background-color: #DFDFDF;
+        font-size: 1em;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        box-shadow: 7px 10px 10px #353535;
     }
     footer{
         width: 100%;
@@ -129,18 +208,17 @@ body{
     .brandFooter{
         width: auto;
     }
+    .btn-vaciarCarrito{
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin: 2vh 0;
+    }
 }
 @media screen and (min-width: 500px){
-    .tarjeta{
-        width: 45%;
-    }
     .itemList{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-    }
-    .tarjetaBotonTexto{
-        padding: 5px 32%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 @media screen and (min-width: 768px){
@@ -157,35 +235,78 @@ body{
     .logoHeader{
         width: 400px;
         height: 400px;
+        margin: 7vh auto 0 auto;
     }
     .tituloHeader{
         font-size: 2em;
     }
-    .tarjeta{
-        width: 45%;
+    .itemList{
+        grid-template-columns: repeat(3, 1fr);
     }
     .tarjetaDetalle{
-        display: flex;
-        justify-content: space-around;
-    }
-    .tarjetaDetalleImg{
-        width: 40%;
-        margin: 10px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 10px;
     }
     .tarjetaDetalleDatos{
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .btn-agregarCarrito{
+        width: 10vw;
     }
     .tarjetaBotonTexto{
         padding: 5px 38%;
     }
+    .tarjetaCarrito, .tarjetaCarritoEncabezado{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-column-gap: 5px;
+        margin: 10px;
+        border: 1px solid #353535;
+    }
+    .tarjetaCarritoEncabezado{
+        border: 2px solid #353535;
+        height: 5vh;
+        text-decoration: none;
+        background-color: #3535353b;
+    }
+    .btn-removeItem{
+        background-color: #00000000;
+        border: none;
+        cursor: pointer;
+    }
+    .btn-vaciarCarrito:hover, .btn-removeItem:hover{
+        transform: scale(1.1);
+        transition: .5s;
+    }
+    .tarjetaCarritoTitulo, .tarjetaCarritoPrecio, .tarjetaCarritoCantidad{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn-finalizar{
+        width: 40%;
+    }
+    .tarjetaCarritoTitulo320px{
+        display: none;
+    }
 }
 @media screen and (min-width: 1024px){
-    .tarjeta{
-        width: 20%;
+    .logoHeader{
+        margin: 7vh auto 5vh;
     }
     .tarjetaBotonTexto{
         padding: 5px 30%;
+    }
+    .itemList{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .alerta{
+        width: 20%;
+        height: 5vh;
+        font-size: 1.1em;
     }
 }

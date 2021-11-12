@@ -1,6 +1,6 @@
 import "boxicons";
 import { CartContext } from "../../CartContext";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 
 const CartWidget = () => {
     const { carrito, totalItems} = useContext(CartContext)
@@ -10,7 +10,7 @@ const CartWidget = () => {
             <box-icon name='cart' flip='horizontal' color='#ffffff'></box-icon>
             <span className="numeroItems">{totalItems}</span>
         </>) : 
-        (<></>)
+        (<></>) 
     )
 }
 

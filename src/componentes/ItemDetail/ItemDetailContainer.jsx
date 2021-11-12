@@ -3,7 +3,7 @@ import ItemDetail from './ItemDetail';
 import { useParams } from 'react-router';
 import { firestore } from '../firebase';
 
-function ItemDetailContainer(){
+const ItemDetailContainer = () =>{
     const [detalle, setDetalle] = useState({})
     const [estado, setEstado] = useState("Cargando...");
     const {id} = useParams()

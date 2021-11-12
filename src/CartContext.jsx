@@ -1,11 +1,14 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useState } from 'react'
+import { firestore } from './componentes/firebase';
+import firebase from 'firebase';
 
 export const CartContext = createContext();
 
 const CartProvider=({children}) => {
     const [carrito, setCarrito] = useState([]);
     const [total, setTotal] = useState(0);
-    const [totalItems, setTotalItems] = useState(0)
+    const [totalItems, setTotalItems] = useState(0);
+    const [confirmarMensaje, setConfirmarMensaje] = useState('');
 
     function isInCart(id){
         const memoriaCarrito = carrito
@@ -38,11 +41,12 @@ const CartProvider=({children}) => {
     }
 
 
-    function removeItem(itemId){
+    function removeItem(itemId, cantidad){
         const memoriaCarrito = carrito;
         memoriaCarrito.splice(itemId, 1);
         setCarrito(memoriaCarrito);
         totalCompra();
+        setTotalItems(totalItems - cantidad)
     }
 
     function clear(){
@@ -59,6 +63,30 @@ const CartProvider=({children}) => {
         setTotal(valorTotal);
     }
 
+    function resetConfirmarMensaje(){
+        setConfirmarMensaje('');
+    }
+
+    function ordenCompra(comprador){
+        const orden = {
+            comprador: comprador,
+            productos: carrito,
+            date: firebase.firestore.Timestamp.now(),
+            total: total
+        }
+        const db = firestore;
+        const collection = db.collection('ordenes');
+        const query = collection.add(orden);
+
+        query
+        .then((result) => {
+            setConfirmarMensaje(`Tu orden se ha realizado con éxito! Tu número de orden es ${result.id}`);
+        })
+        .catch((err) => {
+            setConfirmarMensaje(`Ha ocurrido un error al procesar tu pedido, por favor inténtal más tarde.`);
+        })
+    }
+
     const valorContexto = {
         carrito,
         addItem,
@@ -66,7 +94,10 @@ const CartProvider=({children}) => {
         clear,
         totalCompra,
         total,
-        totalItems
+        totalItems,
+        resetConfirmarMensaje,
+        ordenCompra,
+        confirmarMensaje
     }
 
     return (

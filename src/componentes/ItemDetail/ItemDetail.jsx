@@ -11,7 +11,6 @@ const ItemDetail = ({detalle}) => {
         addItem(detalle, cantidadProducto);
         setCantidad(cantidadProducto)
     } 
-    
 
     return(
         <article className="tarjetaDetalle">
@@ -20,8 +19,9 @@ const ItemDetail = ({detalle}) => {
                 <h3 className="tarjetaTitulo">{detalle.title}</h3>
                 <h4 className="tarjetaPrecio">${detalle.price}</h4>
                 <p className="tarjetaDescripcion">{detalle.description}</p>
+                <span className="tarjetaStock">Quedan {detalle.stock} productos</span> 
                 <ItemCount stock={detalle.stock} initial={1} onAdd = {onAdd}/> 
-                <button hidden={cantidad >=1 ? false : true}><Link to="/cart/">Terminar mi compra</Link></button>
+                <button className="btn-comprar" hidden = {cantidad >= 1 ? false : true}><Link to="/cart/" className="btn-comprarTexto">Comprar</Link></button>
             </div>
         </article>
     )

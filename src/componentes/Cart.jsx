@@ -1,69 +1,32 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../CartContext';
+import ItemCarrito from './ItemCarrito';
+import FormularioOrden from './FormularioOrden';
 
-function Cart() {
-    const {carrito, removeItem, clear, totalCompra, total} = useContext(CartContext);
+const Cart = () => {
+    const {carrito, clear, totalCompra, total} = useContext(CartContext);
 
     useEffect(() => {
         totalCompra()
     })
+    function activarForm(){
+        return 1;
+    }
     
     return(
-        (carrito.length > 0 ) ? 
-        (<section>
-            <h1>Hola! Este es el carrito de compras</h1>
-            <button><Link to="/">Seguir comprando</Link></button>
-            <div className="itemList">
-                {carrito.map((item, index) => {
-                    return (
-                        <div className="tarjetaCarrito" key={index}>
-                            <h3 className="tarjetaCarritoTitulo">{item.title}</h3>
-                            <img className="tarjetaCarritoImg" src={item.img} alt="" width="200px" height="auto"/>
-                            <p>Cantidad: {item.cantidadProd}</p>
-                            <p className="tarjetaCarritoPrecio">Sub-total: ${item.price * item.cantidadProd}</p>
-                            <button onClick={() => {removeItem(index)}}>Eliminar producto</button>
-                        </div>
-                    )
-                })}
-            </div>
-            <br/>
-            <h3>Total: {total}</h3>
-            <br/>
-            <button onClick={clear}>Vaciar carrito</button>
-        </section>) : 
-        (<section>
-            <h1>Hola! Este es el carrito de compras</h1>
-            <button><Link to="/">Seguir comprando</Link></button>
-            <h3>El carrito está vacío</h3>
-        </section>)
+        <section className="cart">
+            <Link to="/"><box-icon name='home' type='solid' color='#975600' size='7vh'></box-icon></Link>
+            <h1 className="mainTitulo">Hola! Este es el carrito de compras</h1>
+            {(carrito.length > 0) ? (<article className="cartList">
+                <ItemCarrito/>
+                <button className="btn-vaciarCarrito" onClick={clear}><box-icon name='trash' type='solid' color='#975600' size='5.5vh'></box-icon></button>
+                <h3>Total del carrito: {total}</h3>
+                <button className="btn-finalizar btn-finalizarTexto" onClick={activarForm}>Finalizar compra</button>
+                {activarForm ? "hola" : null}
+            </article>) : (<h3 className="estadoCarga">El carrito está vacío</h3>)}
+        </section>
     )
 }
 
 export default Cart;
-
-
-
-/*(carrito.length > 0 ) ? 
-        (<section>
-            <h1>Hola! Este es el carrito de compras</h1>
-            <button><Link to="/">Seguir comprando</Link></button>
-            <div className="itemList">
-                {carrito.map((item, index) => {
-                    return (
-                        <div className="tarjetaCarrito" key={index}>
-                            <h3 className="tarjetaCarritoTitulo">{item.title}</h3>
-                            <img className="tarjetaCarritoImg" src={item.img} alt="" width="200px" height="auto"/>
-                            <p>Cantidad: {item.cantidadProd}</p>
-                            <p className="tarjetaCarritoPrecio">Sub-total: ${item.price * item.cantidadProd}</p>
-                            <button onClick={() => {removeItem(index)}}>Eliminar producto</button>
-                        </div>
-                    )
-                })}
-            </div>
-            <br/>
-            <h3>Total: {total}</h3>
-            <br/>
-            <button onClick={clear}>Vaciar carrito</button>
-        </section>) : 
-    (<h3>El carrito está vacío</h3>)*/

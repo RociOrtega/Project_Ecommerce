@@ -1,17 +1,24 @@
 import { Link } from "react-router-dom";
+import ItemCount from "../ItemDetail/ItemCount";
+import { CartContext } from "../../CartContext";
+import { useContext } from "react";
 
-const Item = ({title, price, imgUrl, description, id}) => {
+const Item = ({detalle}) => {
+    const { addItem } = useContext(CartContext)
+
+    function onAdd (cantidadProducto){
+        addItem(detalle, cantidadProducto);
+    } 
+
     return(
         <div className="tarjeta">
-            <img src={imgUrl} alt="" width="100%" height="200px"/>
-            <h3 className="tarjetaTitulo">{title}</h3>
-            <p className="tarjetaDescripcion">{description}</p>
-            <p className="tarjetaPrecio">${price}</p>
-            <button className="tarjetaBoton">
-                <Link to = {`/item/${id}`} className="tarjetaBotonTexto">
-                    Ver más
-                </Link>
-            </button>
+            <Link to = {`/item/${detalle.id}`} className="enlaceTarjeta">
+                <img src={detalle.thumbnail} alt="" width="100%" height="200px"/>
+                <h3 className="tarjetaTitulo">{detalle.title}</h3>
+                <p className="tarjetaDescripcion">{detalle.description}</p>
+                <p className="tarjetaPrecio">${detalle.price}</p>
+            </Link>
+            <ItemCount stock={detalle.stock} initial={1} onAdd={onAdd}></ItemCount> 
         </div>
     )
 }
