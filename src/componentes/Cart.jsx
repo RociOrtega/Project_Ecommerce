@@ -5,7 +5,7 @@ import ItemCarrito from './ItemCarrito';
 import FormularioOrden from './FormularioOrden';
 
 const Cart = () => {
-    const {carrito, clear, totalCompra, total} = useContext(CartContext);
+    const {carrito, clear, totalCompra, total, ordenCompra} = useContext(CartContext);
 
     useEffect(() => {
         totalCompra()
@@ -23,7 +23,7 @@ const Cart = () => {
                 <button className="btn-vaciarCarrito" onClick={clear}><box-icon name='trash' type='solid' color='#975600' size='5.5vh'></box-icon></button>
                 <h3>Total del carrito: {total}</h3>
                 <button className="btn-finalizar btn-finalizarTexto" onClick={activarForm}>Finalizar compra</button>
-                {activarForm ? "hola" : null}
+                {activarForm ? <FormularioOrden ordenCompra={ordenCompra}/> : null}
             </article>) : (<h3 className="estadoCarga">El carrito está vacío</h3>)}
         </section>
     )
