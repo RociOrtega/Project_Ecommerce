@@ -1,46 +1,47 @@
 import { CartContext } from "../CartContext";
 import { useContext, useState } from 'react';
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 const FormularioOrden = ({ordenCompra}) => {
-    const {confirmarMensaje, setConfirmarMensaje, resetConfirmarMensaje} = useContext(CartContext);
+    const {confirmarMensaje, resetConfirmarMensaje} = useContext(CartContext);
+
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
     const [correo, setCorreo] = useState('');
+    const [telefono, setTelefono] = useState('');
+
+    const [mensajeValidacion, setMensajeValidacion] = useState('');
+    const [mensajeValidacionCorreo, setMensajeValidacionCorreo] = useState('');
 
     function validarCorreo(correo) {
-        const simbolos = /^(([^<>()[\]\\.,:\s@"]+(\.[^<>()[\]\\.,:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        return simbolos.test(String(correo).toLowerCase())
+        const expReg = /^(([^<>()[\]\\.,:\s@"]+(\.[^<>()[\]\\.,:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        const resultado = expReg.test(correo);
+        return resultado;
     }
 
     function validarFormulario() {
-        if(nombre === '' || apellido === '' || correo === '') {
-            setConfirmarMensaje('Todos los campos son obligatorios');
-            return false;
+        if(nombre === '' || apellido === '' || correo === '' || telefono === '') {
+            setMensajeValidacion('Todos los campos son obligatorios');
         }else {
-            setNombre('');
-            setApellido('');
-            setCorreo('');
+            setMensajeValidacion('');
+        }if(!validarCorreo(correo)) {
+            setMensajeValidacionCorreo('El correo ingresado no es valido');
+        }else {
+            setMensajeValidacionCorreo('');
         }
-        if(!validarCorreo(correo)) {
-            setConfirmarMensaje('El correo ingresado no es valido');
-            return false;
-        }else{
-            setCorreo('');
-        }
-        return true;
     }
 
-    function enviarOrden() {
-        if(validarFormulario()) {
-            ordenCompra({nombre, apellido, correo});
+    function enviarFormulario() {
+        if(nombre !== '' && apellido !== '' && telefono !== '' && validarCorreo(correo)){
+            ordenCompra({nombre, apellido, telefono, correo});
         }
+        resetConfirmarMensaje()
     }
 
     return (
         <form className="form">
         
-            <h3>Información personal:</h3>
+            <h3>Información de contacto:</h3>
 
             <div>
                 <label htmlFor="name">Nombre:</label>
@@ -48,15 +49,25 @@ const FormularioOrden = ({ordenCompra}) => {
             </div>
 
             <div>
-                <label htmlFor="name">Apellido:</label>
-                <input type="text" name="name" id="name" onChange={ e => setApellido(e.target.value)} required maxLength="50"/>
+                <label htmlFor="lastName">Apellido:</label>
+                <input type="text" name="lastName" id="lastName" onChange={ e => setApellido(e.target.value)} required maxLength="50"/>
+            </div>
+
+            <div>
+                <label htmlFor="phone">Teléfono:</label>
+                <input type="text" name="phone" id="phone" onChange={ e => setTelefono(e.target.value)} required maxLength="15"/>
             </div>
         
             <div>
-                <label htmlFor="phone">Correo electrónico:</label>
-                <input type="text" name="phone" id="phone" onChange={ e => setCorreo(e.target.value)} required maxLength="50"/>
+                <label htmlFor="email">Correo electrónico:</label>
+                <input type="text" name="email" id="email" onChange={ e => setCorreo(e.target.value)} required maxLength="50"/>
+                <span>{mensajeValidacionCorreo}</span>
             </div>
-            <button onClick={enviarOrden}>Enviar orden de compra</button>
+            <p>{mensajeValidacion}</p>
+            <button onClick={validarFormulario}>Enviar formulario</button>
+            {mensajeValidacionCorreo === '' && mensajeValidacion === '' ? 
+            <button onClick={enviarFormulario}>Enviar orden de compra</button> 
+            : null}
     </form>
     )
 }
