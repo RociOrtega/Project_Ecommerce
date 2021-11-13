@@ -9,7 +9,7 @@ const CartProvider=({children}) => {
     const [total, setTotal] = useState(0);
     const [totalItems, setTotalItems] = useState(0);
     const [confirmarMensaje, setConfirmarMensaje] = useState('');
-
+    
     function isInCart(id){
         const memoriaCarrito = carrito
         const existeEnElCarro = memoriaCarrito.find((item) => item.id === id)

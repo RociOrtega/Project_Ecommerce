@@ -1,8 +1,9 @@
 import { CartContext } from "../CartContext";
 import { useContext, useState } from 'react';
+import { Link } from "react-router-dom";
 
 const FormularioOrden = ({ordenCompra}) => {
-    const {confirmarMensaje, resetConfirmarMensaje} = useContext(CartContext);
+    const {confirmarMensaje, setConfirmarMensaje, resetConfirmarMensaje} = useContext(CartContext);
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
     const [correo, setCorreo] = useState('');
@@ -14,7 +15,7 @@ const FormularioOrden = ({ordenCompra}) => {
 
     function validarFormulario() {
         if(nombre === '' || apellido === '' || correo === '') {
-            confirmarMensaje('Todos los campos son obligatorios');
+            setConfirmarMensaje('Todos los campos son obligatorios');
             return false;
         }else {
             setNombre('');
@@ -22,7 +23,7 @@ const FormularioOrden = ({ordenCompra}) => {
             setCorreo('');
         }
         if(!validarCorreo(correo)) {
-            confirmarMensaje('El correo ingresado no es valido');
+            setConfirmarMensaje('El correo ingresado no es valido');
             return false;
         }else{
             setCorreo('');
@@ -55,11 +56,7 @@ const FormularioOrden = ({ordenCompra}) => {
                 <label htmlFor="phone">Correo electrónico:</label>
                 <input type="text" name="phone" id="phone" onChange={ e => setCorreo(e.target.value)} required maxLength="50"/>
             </div>
-
-            { confirmarMensaje === '' ? 
             <button onClick={enviarOrden}>Enviar orden de compra</button>
-            : <button onClick={resetConfirmarMensaje}>Orden confirmada, gracias por tu compra!</button>
-        }
     </form>
     )
 }
