@@ -46,17 +46,14 @@ const FormularioOrden = ({ordenCompra}) => {
                 <label htmlFor="name" className="inputLabelForm">Nombre</label>
                 <input type="text" name="name" id="name" onChange={ e => setNombre(e.target.value)} required maxLength="50" placeholder="Ingresa tu nombre" className="inputForm"/>
             </div>
-
             <div>
                 <label htmlFor="lastName" className="inputLabelForm">Apellido</label>
                 <input type="text" name="lastName" id="lastName" onChange={ e => setApellido(e.target.value)} required maxLength="50" placeholder="Ingresa tu apellido" className="inputForm"/>
             </div>
-
             <div>
                 <label htmlFor="phone" className="inputLabelForm">Teléfono</label>
                 <input type="text" name="phone" id="phone" onChange={ e => setTelefono(e.target.value)} required maxLength="15" placeholder="Ingresa tu teléfono" className="inputForm"/>
             </div>
-        
             <div>
                 <label htmlFor="email" className="inputLabelForm">Correo electrónico</label>
                 <input type="text" name="email" id="email" onChange={ e => setCorreo(e.target.value)} required maxLength="50" placeholder="Ingresa tu correo" className="inputForm"/>
