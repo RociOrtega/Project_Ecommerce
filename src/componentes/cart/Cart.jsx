@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../CartContext';
+import { CartContext } from '../../CartContext';
 import ItemCarrito from './ItemCarrito';
 import FormularioOrden from './FormularioOrden';
 
@@ -23,7 +23,7 @@ const Cart = () => {
                 <ItemCarrito/>
                 <button className="btn-vaciarCarrito" onClick={clear}><box-icon name='trash' type='solid' color='#975600' size='5.5vh'></box-icon></button>
                 <h3>Total del carrito: {total}</h3>
-                <button className="btn-finalizar btn-finalizarTexto" onClick={activarForm}>Finalizar compra</button>
+                <button className="btn-finalizar btn-finalizarTexto" onClick={activarForm}>Ir a pagar</button>
                 {estadoBoton ? <FormularioOrden ordenCompra={ordenCompra}/> : null}
             </article>) : (<h3 className="estadoCarga">El carrito está vacío</h3>)}
         </section>

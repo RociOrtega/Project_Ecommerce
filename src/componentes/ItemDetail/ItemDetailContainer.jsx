@@ -18,7 +18,7 @@ const ItemDetailContainer = () =>{
             setEstado(" ")
         })
         query.catch((error)=> {
-            console.log(error)
+            //
         })
     },[])
 

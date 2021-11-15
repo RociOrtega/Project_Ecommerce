@@ -69,7 +69,7 @@ const CartProvider=({children}) => {
 
     function ordenCompra(comprador){
         const orden = {
-            comprador: comprador,
+            comprador: {nombre: comprador.nombre, apellido: comprador.apellido, correo: comprador.correo, telefono: comprador.telefono},
             productos: carrito,
             date: firebase.firestore.Timestamp.now(),
             total: total
@@ -80,10 +80,10 @@ const CartProvider=({children}) => {
 
         query
         .then((result) => {
-            setConfirmarMensaje(`Tu orden se ha realizado con éxito! Tu número de orden es ${result.id}`);
+            setConfirmarMensaje(`Tu número de orden es: ${result.id}`);
         })
         .catch((err) => {
-            setConfirmarMensaje(`Ha ocurrido un error al procesar tu pedido, por favor inténtal más tarde.`);
+            setConfirmarMensaje(`Ha ocurrido un error al procesar tu pedido, por favor inténtalo más tarde.`);
         })
     }
 

@@ -1,9 +1,9 @@
-import { CartContext } from "../CartContext";
+import { CartContext } from '../../CartContext';
 import { useContext, useState } from 'react';
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const FormularioOrden = ({ordenCompra}) => {
-    const {confirmarMensaje, resetConfirmarMensaje} = useContext(CartContext);
+    const {confirmarMensaje, clear} = useContext(CartContext);
 
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
@@ -32,14 +32,14 @@ const FormularioOrden = ({ordenCompra}) => {
     }
 
     function enviarFormulario() {
+        validarFormulario();
         if(nombre !== '' && apellido !== '' && telefono !== '' && validarCorreo(correo)){
             ordenCompra({nombre, apellido, telefono, correo});
         }
-        resetConfirmarMensaje()
     }
 
     return (
-        <form className="form">
+        <div className="form">
         
             <h3>Información de contacto:</h3>
 
@@ -64,11 +64,10 @@ const FormularioOrden = ({ordenCompra}) => {
                 <span>{mensajeValidacionCorreo}</span>
             </div>
             <p>{mensajeValidacion}</p>
-            <button onClick={validarFormulario}>Enviar formulario</button>
-            {mensajeValidacionCorreo === '' && mensajeValidacion === '' ? 
-            <button onClick={enviarFormulario}>Enviar orden de compra</button> 
-            : null}
-    </form>
+            {confirmarMensaje === '' ? 
+            <button onClick={enviarFormulario}>Enviar formulario</button>
+            :<Link to={"/cart/compraExitosa"} onClick={clear}>Enviar orden de compra</Link>}
+    </div>
     )
 }
 export default FormularioOrden;
