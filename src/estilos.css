@@ -181,6 +181,9 @@ body{
         text-decoration: none;
         letter-spacing: 1px;
     }
+    .btn-finalizarTextoSize{
+        font-size: 1em;
+    }
     .alerta{
         width: 30%;
         height: 10vh;
@@ -195,6 +198,36 @@ body{
         align-items: center;
         position: absolute;
         box-shadow: 7px 10px 10px #353535;
+    }
+    .infoContacto{
+        margin-top: 20px;
+    }
+    .form{
+        border: 2px solid #975600;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 0;
+    }
+    .inputLabelForm{
+        display: flex;
+        align-items: flex-start;
+        margin: 10px 0 5px;
+    }
+    .inputForm{
+        width: 90vw;
+        margin-bottom: 10px;
+        height: 30px;
+    }
+    .inputForm::placeholder{
+        color: #975600;
+        font-family: 'Inter', sans-serif;
+        padding-left: 10px;
+    }
+    .mensajeErrorForm{
+        color: #7c0400;
+        font-size: 0.8em;
     }
     footer{
         width: 100%;
@@ -292,6 +325,16 @@ body{
     }
     .tarjetaCarritoTitulo320px{
         display: none;
+    }
+    .form{
+        margin: 10px 10vw;
+    }
+    .inputForm{
+        width: 75vw;
+        height: 40px;
+    }
+    .mensajeErrorForm{
+        font-size: 0.95em;
     }
 }
 @media screen and (min-width: 1024px){

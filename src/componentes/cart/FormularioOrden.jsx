@@ -21,11 +21,11 @@ const FormularioOrden = ({ordenCompra}) => {
 
     function validarFormulario() {
         if(nombre === '' || apellido === '' || correo === '' || telefono === '') {
-            setMensajeValidacion('Todos los campos son obligatorios');
+            setMensajeValidacion('* Todos los campos son obligatorios');
         }else {
             setMensajeValidacion('');
         }if(!validarCorreo(correo)) {
-            setMensajeValidacionCorreo('El correo ingresado no es valido');
+            setMensajeValidacionCorreo('* El correo ingresado no es valido');
         }else {
             setMensajeValidacionCorreo('');
         }
@@ -39,35 +39,35 @@ const FormularioOrden = ({ordenCompra}) => {
     }
 
     return (
+        <section className="infoContacto">
+        <h2 className="mainTitulo">Información de contacto</h2>
         <div className="form">
-        
-            <h3>Información de contacto:</h3>
-
             <div>
-                <label htmlFor="name">Nombre:</label>
-                <input type="text" name="name" id="name" onChange={ e => setNombre(e.target.value)} required maxLength="50"/>
+                <label htmlFor="name" className="inputLabelForm">Nombre</label>
+                <input type="text" name="name" id="name" onChange={ e => setNombre(e.target.value)} required maxLength="50" placeholder="Ingresa tu nombre" className="inputForm"/>
             </div>
 
             <div>
-                <label htmlFor="lastName">Apellido:</label>
-                <input type="text" name="lastName" id="lastName" onChange={ e => setApellido(e.target.value)} required maxLength="50"/>
+                <label htmlFor="lastName" className="inputLabelForm">Apellido</label>
+                <input type="text" name="lastName" id="lastName" onChange={ e => setApellido(e.target.value)} required maxLength="50" placeholder="Ingresa tu apellido" className="inputForm"/>
             </div>
 
             <div>
-                <label htmlFor="phone">Teléfono:</label>
-                <input type="text" name="phone" id="phone" onChange={ e => setTelefono(e.target.value)} required maxLength="15"/>
+                <label htmlFor="phone" className="inputLabelForm">Teléfono</label>
+                <input type="text" name="phone" id="phone" onChange={ e => setTelefono(e.target.value)} required maxLength="15" placeholder="Ingresa tu teléfono" className="inputForm"/>
             </div>
         
             <div>
-                <label htmlFor="email">Correo electrónico:</label>
-                <input type="text" name="email" id="email" onChange={ e => setCorreo(e.target.value)} required maxLength="50"/>
-                <span>{mensajeValidacionCorreo}</span>
+                <label htmlFor="email" className="inputLabelForm">Correo electrónico</label>
+                <input type="text" name="email" id="email" onChange={ e => setCorreo(e.target.value)} required maxLength="50" placeholder="Ingresa tu correo" className="inputForm"/>
             </div>
-            <p>{mensajeValidacion}</p>
-            {confirmarMensaje === '' ? 
-            <button onClick={enviarFormulario}>Enviar formulario</button>
-            :<Link to={"/cart/compraExitosa"} onClick={clear}>Enviar orden de compra</Link>}
-    </div>
+        </div>
+        <p className="mensajeErrorForm">{mensajeValidacionCorreo}</p>
+        <p className="mensajeErrorForm">{mensajeValidacion}</p>
+        {confirmarMensaje === '' ? 
+        <button onClick={enviarFormulario} className="btn-finalizar btn-finalizarTexto">Enviar formulario</button>
+        :<button className="btn-finalizar btn-finalizarTexto"><Link to={"/cart/compraExitosa"} onClick={clear} className="btn-finalizarTexto btn-finalizarTextoSize">Enviar orden de compra</Link></button>}
+    </section>
     )
 }
 export default FormularioOrden;
