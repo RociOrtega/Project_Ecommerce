@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/project_ecommerce/static/css/main.5468837a.chunk.css",
+    "main.js": "/project_ecommerce/static/js/main.f5ce8a98.chunk.js",
+    "main.js.map": "/project_ecommerce/static/js/main.f5ce8a98.chunk.js.map",
+    "runtime-main.js": "/project_ecommerce/static/js/runtime-main.88527823.js",
+    "runtime-main.js.map": "/project_ecommerce/static/js/runtime-main.88527823.js.map",
+    "static/js/2.d04cef44.chunk.js": "/project_ecommerce/static/js/2.d04cef44.chunk.js",
+    "static/js/2.d04cef44.chunk.js.map": "/project_ecommerce/static/js/2.d04cef44.chunk.js.map",
+    "index.html": "/project_ecommerce/index.html",
+    "static/css/main.5468837a.chunk.css.map": "/project_ecommerce/static/css/main.5468837a.chunk.css.map",
+    "static/js/2.d04cef44.chunk.js.LICENSE.txt": "/project_ecommerce/static/js/2.d04cef44.chunk.js.LICENSE.txt",
+    "static/media/estilos.css": "/project_ecommerce/static/media/img-cerveza-600x426.43a7d567.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.88527823.js",
+    "static/js/2.d04cef44.chunk.js",
+    "static/css/main.5468837a.chunk.css",
+    "static/js/main.f5ce8a98.chunk.js"
+  ]
+}
