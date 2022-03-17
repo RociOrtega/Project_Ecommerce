@@ -4,10 +4,6 @@ import "boxicons";
 const ItemCount = ({stock, initial, onAdd}) => {
     const [contador, setContador] = useState(initial)
     const [estadoBoton, setEstadoBoton] = useState(false)
-    const boton = () => {
-        setEstadoBoton(true)
-        setTimeout(() => {setEstadoBoton(false)}, 800)
-    }  
     const aumentar = () => {
         if(contador < stock){
             setContador(contador + 1)
@@ -21,6 +17,10 @@ const ItemCount = ({stock, initial, onAdd}) => {
         onAdd(contador)
         boton()
     }
+    const boton = () => {
+        setEstadoBoton(true)
+        setTimeout(() => {setEstadoBoton(false)}, 800)
+    }  
 
     return(
         <>
