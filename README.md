@@ -29,6 +29,6 @@ Otro comando que puede ser interesante es `npm build`, el cual también debe ins
 ![project-ecommerce](https://github.com/RociOrtega/project_ecommerce/blob/main/public/gif/demo-project-ecommerce_ROrtega.gif)
 
 
-Enlace a github: https://github.com/RociOrtega/project_ecommerce.git
+Enlace a github: https://rociortega.github.io/project_ecommerce/
 
 **Si quieres realizar una colaboracion, solo debes incluirla dentro de éste archivo README.** 
